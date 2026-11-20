@@ -1,0 +1,46 @@
+{
+  "name": "playground-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playground Lab - 2D physics sandbox",
+  "author": "Playground Lab",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "35.1.5",
+    "electron-builder": "26.0.12"
+  },
+  "build": {
+    "appId": "com.playgroundlab.desktop",
+    "productName": "Playground Lab",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "game/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "Playground-Lab-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Playground Lab"
+    }
+  }
+}

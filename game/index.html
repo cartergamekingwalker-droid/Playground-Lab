@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Playground Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">PLAYGROUND <span>LAB</span></div>
+  <div class="subtitle">PHYSICS SANDBOX</div>
+  <div class="topright">WINDOWS EDITION · 1.0</div>
+</header>
+<div class="app">
+  <aside class="sidebar">
+    <h2>SPAWN</h2>
+    <div class="toolgrid">
+      <button class="tool active" data-tool="box">▰ Box</button>
+      <button class="tool" data-tool="ball">● Ball</button>
+      <button class="tool" data-tool="crate">▣ Crate</button>
+      <button class="tool" data-tool="heavy">⬤ Heavy ball</button>
+      <button class="tool" data-tool="ragdoll">♟ Ragdoll</button>
+      <button class="tool" data-tool="platform">▬ Platform</button>
+    </div>
+    <h2>TOOLS</h2>
+    <div class="toolgrid">
+      <button class="tool" data-tool="select">↖ Drag</button>
+      <button class="tool" data-tool="delete">✕ Delete</button>
+      <button class="tool" data-tool="pin">⌖ Pin / unpin</button>
+    </div>
+    <h2>SIMULATION</h2>
+    <div class="buttonrow">
+      <button id="pause">Ⅱ Pause</button><button id="reset">↻ Reset</button>
+    </div>
+    <label class="sliderlabel">Gravity <b id="gravityValue">1.0×</b></label>
+    <input id="gravity" type="range" min="0" max="2.5" step=".1" value="1">
+    <div class="buttonrow"><button id="clear" class="wide">Clear all</button></div>
+    <div class="help">
+      <h2>CONTROLS</h2>
+      <p>Select an item, then click in the world to spawn it.</p>
+      <p>Use Drag to move objects. Right-click an object to delete it.</p>
+      <p>Pin / unpin lets you anchor an object in place.</p>
+    </div>
+  </aside>
+  <main class="stage" id="stage">
+    <canvas id="world"></canvas>
+    <div class="hint" id="hint">Choose an item and click in the world to spawn it</div>
+    <div class="paused" id="pausedLabel">PAUSED</div>
+  </main>
+  <aside class="inspector">
+    <h2>WORLD</h2>
+    <div class="stat"><span>Simulation</span><b id="simState">Running</b></div>
+    <div class="stat"><span>Objects</span><b id="objectCount">0</b></div>
+    <div class="stat"><span>Selected tool</span><b id="toolName">Box</b></div>
+    <div class="line"></div>
+    <h2>OBJECT INFO</h2>
+    <p id="objectInfo">No object selected.</p>
+    <div class="line"></div>
+    <p class="muted">Playground Lab is your physics playground. Spawn, move, pin, and experiment with objects.</p>
+  </aside>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
